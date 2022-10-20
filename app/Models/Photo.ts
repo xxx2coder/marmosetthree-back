@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, computed } from '@ioc:Adonis/Lucid/Orm'
 
 export default class Photo extends BaseModel {
   @column({ isPrimary: true})
@@ -22,4 +22,9 @@ export default class Photo extends BaseModel {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
+
+  @computed()
+  public get full_path() {
+    return `public/${this.collection_name}/${this.file_name}`
+  }
 }

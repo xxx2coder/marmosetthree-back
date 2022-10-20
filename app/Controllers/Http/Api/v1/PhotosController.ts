@@ -2,7 +2,6 @@ import type {HttpContextContract} from '@ioc:Adonis/Core/HttpContext'
 import {schema} from '@ioc:Adonis/Core/Validator'
 import Application from '@ioc:Adonis/Core/Application'
 import Photo from "App/Models/Photo"
-import Drive from '@ioc:Adonis/Core/Drive'
 
 export default class PhotosController {
   public async index({response}: HttpContextContract) {

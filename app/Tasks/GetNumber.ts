@@ -18,6 +18,11 @@ export default class GetNumber extends BaseTask {
   public async handle() {
     let date = new Date()
     let index = LastNumber.currentDay.length
+
+    if (index > 6) {
+      return false;
+    }
+
     let date_index = `${date.getFullYear()}-${date.getMonth()}-${date.getDay()}-${(index + 1)}`
 
     if (await LastNumber.findBy('date_index', date_index)) {

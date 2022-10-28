@@ -17,7 +17,7 @@ export default class GetNumber extends BaseTask {
 
   public async handle() {
     let date = new Date()
-    let index = LastNumber.currentDay.length
+    let index = await LastNumber.query().withScopes((scopes) => scopes.currentDay()).length
 
     if (index > 6) {
       return false;
